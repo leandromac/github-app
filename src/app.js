@@ -10,7 +10,7 @@ class App extends Component {
     this.state = {
       userinfo: null,
       repos:[],
-      starred: []
+      starred: [], 
     }
       // repos:[{
       //   name: 'Repositório 1',
@@ -28,12 +28,14 @@ class App extends Component {
     return `https://api.github.com/users${internalUser}${internalType}`
   }
   
-
   handleSearch(e) {
     const value = e.target.value
     const keycode = e.which || e.keycode
     const ENTER = 13
+    const target = e.target
+
     if(keycode === ENTER) {
+      target.disabled = true
       ajax().get(this.getGitHubApiUrl(value))
         .then((result) => {
           this.setState({
@@ -50,7 +52,9 @@ class App extends Component {
             
           })
         })
-    
+        .always(() => {
+          target.disabled = false
+        })
     }
     
   }
