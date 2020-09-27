@@ -7,7 +7,9 @@ const UserInfo = ({ userinfo }) => (
     <img src={userinfo.photo} />
     
     <h1 className='username'>
-      <a href='https://github.com/leandromac'>{userinfo.username}</a>
+      <a href={`https://github.com/${userinfo.login}`}>
+        {userinfo.username}
+      </a>
     </h1>
 
     <div className='repos-info'>
