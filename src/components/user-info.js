@@ -11,6 +11,18 @@ const UserInfo = ({ userinfo }) => (
         {userinfo.username}
       </a>
     </h1>
+    { !!userinfo.bio &&
+      <h5>
+        {userinfo.bio}
+      </h5>
+    }
+    { !!userinfo.location &&
+      <p>
+        {userinfo.location}<br/>
+        <a href={userinfo.blog} target='_blank'>{userinfo.blog
+          .replace('http://www.','').replace('https://www.', '')}</a>
+      </p>
+    }
 
     <div className='repos-info'>
       <ul>
@@ -25,6 +37,9 @@ const UserInfo = ({ userinfo }) => (
 UserInfo.propTypes = {
   userinfo: PropTypes.shape({
     username: PropTypes.string,
+    bio: PropTypes.string.isRequired,
+    blog: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
     photo: PropTypes.string.isRequired,
     login: PropTypes.string.isRequired,
     repos: PropTypes.number.isRequired,

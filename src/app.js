@@ -41,6 +41,9 @@ class App extends Component {
           this.setState({
             userinfo: {
               username: result.name,
+              bio: result.bio,
+              blog: result.blog,
+              location: result.location,
               photo: result.avatar_url,
               login: result.login,
               repos: result.public_repos,

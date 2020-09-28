@@ -71,3 +71,8 @@ ul {
 .starred li + li {
   border-top: 1px solid #ccc;
 }
+
+h1, h5 {
+  margin: 0px !important;
+  padding: 0px !important
+}
